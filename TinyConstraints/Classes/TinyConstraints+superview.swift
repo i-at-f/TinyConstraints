@@ -66,7 +66,7 @@
             }
             
             if effectiveUserInterfaceLayoutDirection == .leftToRight {
-                
+
                 if !(excludedEdge.contains(.leading) || excludedEdge.contains(.left)) {
                     constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
@@ -75,16 +75,16 @@
                     constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
             } else {
-                
+
                 if !(excludedEdge.contains(.leading) || excludedEdge.contains(.right)) {
                     constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
-                
+
                 if !(excludedEdge.contains(.trailing) || excludedEdge.contains(.left)) {
                     constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
             }
-            
+
             if !excludedEdge.contains(.bottom) {
                 constraints.append(bottomToSuperview(offset: -insets.bottom, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
@@ -98,11 +98,11 @@
         func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
             let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
             
-            if effectiveUserInterfaceLayoutDirection == .rightToLeft {
-                return leading(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
-            } else {
+//            if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+//                return leading(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
+//            } else {
                 return leading(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
-            }
+//            }
         }
         
         @available(tvOS 10.0, *)
@@ -111,11 +111,11 @@
         func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
             let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
             
-            if effectiveUserInterfaceLayoutDirection == .rightToLeft {
-                return trailing(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
-            } else {
+//            if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+//                return trailing(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
+//            } else {
                 return trailing(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
-            }
+//            }
         }
         
         @available(tvOS 10.0, *)
@@ -125,14 +125,14 @@
             
             var constraints = Constraints()
             
-            if effectiveUserInterfaceLayoutDirection == .leftToRight {
+//            if effectiveUserInterfaceLayoutDirection == .leftToRight {
                 constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
-            } else {
-                constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
-                constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
-            }
-            
+//            } else {
+//                constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
+//                constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
+//            }
+
             return constraints
         }
         
